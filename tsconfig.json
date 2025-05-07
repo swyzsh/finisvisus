@@ -1,27 +1,51 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    /* Projects */
     "incremental": true,
+
+/* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2022", "dom", "dom.iterable"],
+    "moduleDetection": "force",
+    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    }, 
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+    "checkJs": true,
+
+    /* Emit */
+    "noEmit": true,
+
+    /* Type Checking */
+    "strict": true,
+
+    /* Completedness */
+    "skipLibCheck": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "eslint.config.mjs",
+    "next-env.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx", 
+    "**/*.cjs",
+    "**/*.js", 
+    ".next/types/**/*.ts",
+    "src/utils/env.js"
+  ],
   "exclude": ["node_modules"]
 }
