@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 :root {
+  --background: #ffedd4;
+  --foreground: #292524;
+}
+
+[data-mode="dark"] {
   --background: #292524;
   --foreground: #ffedd4;
 }
 
-html {
-  box-sizing: border-box;
+* {
+  transition-property: background-color;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
 }
 
 img {
@@ -24,12 +31,34 @@ img {
   pointer-events: none;
 }
 
-/* @media (prefers-color-scheme: light) { */
-/*   :root { */
-/*     --background: #ffedd4; */
-/*     --foreground: #292524; */
-/*   } */
-/* } */
+a {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+button {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--background);
@@ -39,4 +68,70 @@ body {
   overflow-y: auto;
   padding: 0;
   margin: 0;
+}
+
+.btn-primary {
+  @apply flex flex-row items-center justify-between transition-colors;
+  @apply cursor-pointer whitespace-nowrap px-3 py-1;
+  @apply rounded-md border border-nero/80 dark:border-honiedwhite/80;
+  @apply text-base font-semibold text-honiedwhite hover:text-nero active:text-nero max-md:text-sm;
+  @apply bg-nero/80 backdrop-blur-md hover:bg-honiedwhite/80 active:bg-honiedwhite/80;
+  @apply dark:text-nero dark:hover:text-honiedwhite dark:active:text-honiedwhite;
+  @apply dark:bg-honiedwhite/80 dark:hover:bg-nero/80 dark:active:bg-nero/80;
+}
+
+.btn-secondary {
+  @apply flex flex-row items-center justify-between transition-colors;
+  @apply cursor-pointer whitespace-nowrap px-3 py-1;
+  @apply rounded-md border border-nero/80 dark:border-honiedwhite/80;
+  @apply text-base font-semibold text-nero hover:text-honiedwhite active:text-honiedwhite max-md:text-sm;
+  @apply bg-honiedwhite/80 backdrop-blur-md hover:bg-nero/80 active:bg-nero/80;
+  @apply dark:text-honiedwhite dark:hover:text-nero dark:active:text-nero;
+  @apply dark:bg-nero/80 dark:hover:bg-honiedwhite/80 dark:active:bg-honiedwhite/80;
+}
+
+.btn-success {
+  @apply flex flex-row items-center justify-between transition-colors;
+  @apply cursor-pointer whitespace-nowrap px-3 py-1;
+  @apply rounded-md border border-nero/80 dark:border-green-400/80;
+  @apply text-base font-semibold text-nero hover:text-honiedwhite active:text-honiedwhite max-md:text-sm;
+  @apply bg-green-300/80 backdrop-blur-md hover:bg-green-800/80 active:bg-green-800/80;
+  @apply dark:text-green-400 dark:hover:text-nero dark:active:text-nero;
+  @apply dark:bg-nero/80 dark:hover:bg-green-400/80 dark:active:bg-green-400/80;
+}
+
+.btn-warning {
+  @apply flex flex-row items-center justify-between transition-colors;
+  @apply cursor-pointer whitespace-nowrap px-3 py-1;
+  @apply rounded-md border border-nero/80 dark:border-red-400/80;
+  @apply text-base font-semibold text-nero hover:text-honiedwhite active:text-honiedwhite max-md:text-sm;
+  @apply bg-red-300/80 backdrop-blur-md hover:bg-red-800/80 active:bg-red-800/80;
+  @apply dark:text-red-400 dark:hover:text-nero dark:active:text-nero;
+  @apply dark:bg-nero/80 dark:hover:bg-red-400/80 dark:active:bg-red-400/80;
+}
+
+.btn-nav {
+  @apply flex flex-row items-center justify-between transition-colors;
+  @apply cursor-pointer whitespace-nowrap rounded-md border px-1.5 py-0.5;
+  @apply border-transparent hover:border-nero/80 dark:hover:border-honiedwhite/80;
+  @apply text-base font-semibold text-nero max-md:text-sm dark:text-honiedwhite;
+  @apply bg-transparent backdrop-blur-md hover:bg-nero/80 dark:hover:bg-honiedwhite/80;
+  @apply active:bg-nero/80 dark:active:bg-honiedwhite/80;
+  @apply hover:text-honiedwhite dark:hover:text-nero;
+  @apply active:text-honiedwhite dark:active:text-nero;
+}
+
+.btn-nav-pressed {
+  @apply flex flex-row items-center justify-between transition-colors;
+  @apply cursor-pointer whitespace-nowrap rounded-md border px-1.5 py-0.5;
+  @apply border-nero/80 dark:border-honiedwhite/80;
+  @apply text-base font-semibold text-honiedwhite max-md:text-sm dark:text-nero;
+  @apply bg-nero/80 backdrop-blur-md dark:bg-honiedwhite/80;
+}
+
+.input-box {
+  @apply flex w-full break-all rounded-md border border-nero/80 bg-honiedwhite/80 px-3 py-2 text-base font-medium text-nero backdrop-blur-md transition-colors placeholder:text-nero/80;
+  @apply dark:border-honiedwhite/80 dark:bg-nero/80 dark:text-honiedwhite dark:placeholder:text-honiedwhite/80;
+  @apply focus-visible:outline-2 disabled:cursor-not-allowed disabled:opacity-50;
+  @apply focus-visible:outline-nero dark:focus-visible:outline-honiedwhite;
 }

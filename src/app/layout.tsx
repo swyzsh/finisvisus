@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import localFont from "next/font/local";
-import ToastProvider from "@/lib/toast-provider";
+import { Figtree, Geist_Mono } from "next/font/google";
+import Providers from "@/lib/providers";
+import Navbar from "@/components/navbar";
 import "@/styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const FigtreeSans = Figtree({
+  variable: "--font-figtree-sans",
   subsets: ["latin"],
 });
 
-const oldeEnglish = localFont({
-  src: "./_fonts/olde-english/OldeEnglishRegular.ttf",
+const GeistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const AliceSerif = localFont({
+  src: "./_fonts/Alice/Alice-Regular.ttf",
+  variable: "--font-alice",
+});
+
+const OldeEnglish = localFont({
+  src: "./_fonts/Olde_English/OldeEnglishRegular.ttf",
   variable: "--font-olde-english",
 });
 
@@ -26,11 +37,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${oldeEnglish.variable} antialiased`}
+        className={`${FigtreeSans.variable} ${GeistMono.variable} ${AliceSerif.variable} ${OldeEnglish.variable} antialiased`}
       >
-        <ToastProvider>{children}</ToastProvider>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
